@@ -17,11 +17,11 @@ class App extends Component {
   //  - will be called after the component is initially rendered
   // - will fetch an array of photos
   // - will add that array of photos to state once received
-
   
   
+  
 
-  componentWillMount() {
+  componentDidMount() {
     const pictures = []
     const photoIdNumbers = []
     const filenames = []
@@ -30,7 +30,7 @@ class App extends Component {
       return res.json()
     })
     .then(data => {
-      // console.log
+      // console.log(data)
       data.forEach(async photo => {
         await filenames.push(photo.filename)
 
@@ -62,11 +62,6 @@ class App extends Component {
       <React.Fragment>
         <header>
           <h1>Photo Wall</h1>
-          <p>
-            Start by reading App.jsx and completing the numbered steps.
-            Afterward, delete this paragraph. Then, open up App.css and complete
-            the instructions there.
-          </p>
         </header>
         <div className="collage">
           {/* We use map here because Array.prototype.map is an expression,
